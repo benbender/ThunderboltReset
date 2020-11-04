@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21C35C1825521D3B007A8225 /* libkmod.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C35C1525521D1F007A8225 /* libkmod.a */; };
 		CE0D113D2377FA5F003BE3C3 /* ThunderboltWait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE0D113B2377FA5F003BE3C3 /* ThunderboltWait.cpp */; };
 		CE0D113E2377FA5F003BE3C3 /* ThunderboltWait.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CE0D113C2377FA5F003BE3C3 /* ThunderboltWait.hpp */; };
-		CEDE8D7B22984F8F00C73034 /* libkmod.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDE8D6E22984F7700C73034 /* libkmod.a */; };
 		CEDE8D7C22984FE600C73034 /* plugin_start.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEDE8D7822984F7700C73034 /* plugin_start.cpp */; };
 		CEDE8D7E2298501600C73034 /* kern_start.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEDE8D7D2298501600C73034 /* kern_start.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21C35C1525521D1F007A8225 /* libkmod.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkmod.a; path = usr/lib/libkmod.a; sourceTree = SDKROOT; };
 		CE0D113B2377FA5F003BE3C3 /* ThunderboltWait.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThunderboltWait.cpp; sourceTree = "<group>"; };
 		CE0D113C2377FA5F003BE3C3 /* ThunderboltWait.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ThunderboltWait.hpp; sourceTree = "<group>"; };
 		CEDE8CE522984C0800C73034 /* ThunderboltReset.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderboltReset.kext; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,19 +69,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDE8D7B22984F8F00C73034 /* libkmod.a in Frameworks */,
+				21C35C1825521D3B007A8225 /* libkmod.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21C35C1425521D1F007A8225 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21C35C1525521D1F007A8225 /* libkmod.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEDE8CDB22984C0800C73034 = {
 			isa = PBXGroup;
 			children = (
 				CEDE8D4B22984F5B00C73034 /* SDK */,
 				CEDE8CE722984C0800C73034 /* ThunderboltReset */,
 				CEDE8CE622984C0800C73034 /* Products */,
+				21C35C1425521D1F007A8225 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -404,7 +414,10 @@
 				);
 				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/Lilu.kext/Contents/Resources";
 				INFOPLIST_FILE = ThunderboltReset/Info.plist;
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Lilu.kext/Contents/Resources/Library";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/MacKernelSDK/Library/x86_64";
 				MODULE_NAME = com.osy86.ThunderboltReset;
 				MODULE_START = "$(PRODUCT_NAME)_kern_start";
 				MODULE_STOP = "$(PRODUCT_NAME)_kern_stop";
@@ -428,7 +441,10 @@
 				);
 				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/Lilu.kext/Contents/Resources";
 				INFOPLIST_FILE = ThunderboltReset/Info.plist;
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Lilu.kext/Contents/Resources/Library";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/MacKernelSDK/Library/x86_64";
 				MODULE_NAME = com.osy86.ThunderboltReset;
 				MODULE_START = "$(PRODUCT_NAME)_kern_start";
 				MODULE_STOP = "$(PRODUCT_NAME)_kern_stop";
